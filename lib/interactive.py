@@ -25,7 +25,7 @@ TCP_PORT_OFFSET = 4404
 TCP_PORT_CLIENT = 4402
 MAX_TO_FROM_RADIO_SIZE = 512
 DEVICE_SIM_DOCKER_IMAGE = "meshtastic/meshtasticd"
-MESHTASTICD_PATH_DOCKER = "meshtasticd"
+MESHTASTICD_PATH_DOCKER = "/usr/bin/meshtasticd"
 
 
 class InteractiveNode:
@@ -420,7 +420,7 @@ class InteractiveSim:
                     )),
                     name="Meshtastic",
                     detach=True,
-                    auto_remove=False,   # keep False for debugging
+                    auto_remove=True,   # keep False for debugging
                     user="root",
                     volumes={"Meshtasticator": {'bind': '/home/', 'mode': 'rw'}}
                 )
